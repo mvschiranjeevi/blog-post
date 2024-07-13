@@ -1,0 +1,25 @@
+Delete posts
+---
+operationId: delete-post
+tags:
+  - Posts
+security:
+  - bearerAuth: []
+parameters:
+  - name: Authorization
+    in: header
+    required: true
+    description: Bearer token
+    type: string
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the post to delete
+responses:
+  204:
+    description: Post deleted successfully
+  404:
+    description: Post not found
+  401:
+    description: Unauthorized

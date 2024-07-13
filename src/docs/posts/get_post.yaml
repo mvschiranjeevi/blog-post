@@ -1,0 +1,40 @@
+Get single posts
+---
+operationId: get-post
+tags:
+  - Posts
+security:
+  - bearerAuth: []
+parameters:
+  - name: Authorization
+    in: header
+    required: true
+    description: Bearer <JWT>
+    type: string
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the post to retrieve
+responses:
+  200:
+    description: Post details
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        user_id:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+  404:
+    description: Post not found
+  401:
+    description: Unauthorized

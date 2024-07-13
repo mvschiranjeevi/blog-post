@@ -1,0 +1,70 @@
+Get all posts
+---
+operationId: get-posts
+
+tags:
+  - Posts
+security:
+  - bearerAuth: []
+parameters:
+  - name: Authorization
+    in: header
+    required: true
+    description: Bearer <JWT>
+    type: string
+  - name: page
+    in: query
+    type: integer
+    description: Page number for pagination
+    required: false
+    default: 1
+  - name: per_page
+    in: query
+    type: integer
+    description: Number of posts per page
+    required: false
+    default: 5
+responses:
+  200:
+    description: A list of posts
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              content:
+                type: string
+              user_id:
+                type: integer
+              created_at:
+                type: string
+              updated_at:
+                type: string
+        meta:
+          type: object
+          properties:
+            page:
+              type: integer
+            pages:
+              type: integer
+            total_count:
+              type: integer
+            prev_page:
+              type: integer
+              nullable: true
+            next_page:
+              type: integer
+              nullable: true
+            has_next:
+              type: boolean
+            has_prev:
+              type: boolean
+  401:
+    description: Unauthorized

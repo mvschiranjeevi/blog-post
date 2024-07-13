@@ -1,0 +1,45 @@
+Create posts
+---
+operationId: create-post
+tags:
+  - Posts
+security:
+  - bearerAuth: []
+parameters:
+  - name: Authorization
+    in: header
+    required: true
+    description: Bearer token
+    type: string
+  - name: body
+    description: The body should contain the post creation data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - title
+        - content
+      properties:
+        title:
+          type: string
+          example: "My First Post"
+        content:
+          type: string
+          example: "This is the content of my first post"
+responses:
+  200:
+    description: Post created successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Post created successfully"
+        id:
+          type: integer
+          example: 1
+  400:
+    description: Title and content are required
+  401:
+    description: Unauthorized
