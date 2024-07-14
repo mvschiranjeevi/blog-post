@@ -20,26 +20,6 @@ This is a RESTful API built using Python Flask for managing blog posts. It inclu
 - **SQLAlchemy**: ORM for database management.
 - **JWT**: Authentication mechanism.
 
-## Project Structure
-
-├── instance/
-├── src/
-│ ├── ...
-│ ├── config # Config files for the application
-│ ├── constants # HTTP constant codes for the application
-│ ├── docs # Swagger file docs
-│ ├── **init** # entry file
-│ ├── auth.py # Auth end points
-│ ├── posts.py # blog post end points
-│ └── database.py # database structure
-├── test/
-│ ├── ...
-│ ├── **init** # entry file
-│ ├── test_auth.py # unit cases for auth end points
-│ └── test_posts.py # unit test cases for blog post end points
-├── requirements.txt
-└── ...
-
 ## Setup and Installation
 
 1. **Clone the repository**:
