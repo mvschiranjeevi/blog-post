@@ -85,6 +85,23 @@ def me():
     }), HTTP_200_OK
 
 
+@auth.get("/users")
+def get_users():
+    users = User.query.all()
+    data = []
+
+    for user in users:
+        data.append({
+            "id": user.id,
+            "user": user.username,
+            "password": user.password,
+            "email": user.email,
+            "created_at": user.created_at,
+            "updated_at": user.updated_at
+        })
+
+    return jsonify({"data": data}), 200
+
 @auth.get('/token/refresh')
 @jwt_required(refresh=True)
 def  refresh_users_token():
