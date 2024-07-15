@@ -1,6 +1,5 @@
 import unittest
 from src import create_app, db
-import os
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
