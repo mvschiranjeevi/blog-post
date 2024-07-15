@@ -19,14 +19,36 @@ This is a RESTful API built using Python Flask for managing blog posts. It inclu
 - **Python Flask**: Web framework for building the API.
 - **SQLAlchemy**: ORM for database management.
 - **JWT**: Authentication mechanism.
+- **pylint**: Linting libraryfor better readabilty.
+- **unittest**: API testing library Unit testing.
+- **Swagger**: Tool for API Documentation.
+
+## Project Structure
+
+```bash
+instance/
+src/
+└── config/
+└── constants/
+└── docs/
+└── init.py
+└── auth.py
+└── database.py
+└── posts.py
+tests/
+└── init.py
+└── test_auth.py
+└── test_posts.py
+requirements.txt
+```
 
 ## Setup and Installation
 
 1. **Clone the repository**:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/mvschiranjeevi/blog-post
+   cd blog-post
    ```
 
 2. **Create and activate a virtual environment**:
@@ -71,4 +93,4 @@ flask run
 python -m unittest discover -s tests
 ```
 
-This `README.md` provides an overview of your Flask project, setup instructions, details about the API endpoints, and how to run tests. Adjust the placeholder texts (like `<repository-url>`) and secret keys as needed.
+This `README.md` provides an overview of your Flask project, setup instructions, details about the API endpoints, and how to run tests.
