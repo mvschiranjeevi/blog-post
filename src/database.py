@@ -1,7 +1,5 @@
-from enum import unique
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from sqlalchemy.orm import backref
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
@@ -16,7 +14,6 @@ class User(db.Model):
 
     def __repr__(self) -> str:
         return 'User>>> {self.username}'
-    
 
 class Posts(db.Model):
     id=db.Column(db.Integer, primary_key= True)
@@ -29,5 +26,3 @@ class Posts(db.Model):
 
     def __repr__(self) -> str:
         return 'Posts>>> {self.title}'
-    
-

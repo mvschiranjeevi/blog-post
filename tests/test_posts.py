@@ -1,5 +1,6 @@
-from tests import BaseTestCase
 import json
+
+from tests import BaseTestCase
 
 class PostsTestCase(BaseTestCase):
 
@@ -28,8 +29,7 @@ class PostsTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 200)
 
     # Create Post Check without auth token
-    def test_create_post(self):
-        token = self.authenticate()
+    def test_create_tokenless_post(self):
         response = self.client.post('/api/v1/posts/', json={
             'title': 'Test Post',
             'content': 'This is a test post.'
@@ -38,7 +38,7 @@ class PostsTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 401)
 
     # Create Post Check without content 
-    def test_create_post(self):
+    def test_create_invalid_post(self):
         token = self.authenticate()
         response = self.client.post('/api/v1/posts/', json={
             'title': 'Test Post',
@@ -67,7 +67,7 @@ class PostsTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 200)
 
     # Get post by invalid id check
-    def test_get_post_by_id(self):
+    def test_get_post_by_invalid_id(self):
         token = self.authenticate()
         response = self.client.post('/api/v1/posts/', json={
             'title': 'Test Post',
